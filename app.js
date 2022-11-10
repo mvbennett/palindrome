@@ -1,10 +1,9 @@
 const palindrome = (str) => {
-  let newStr = "";
-  for(let x = 0; x < str.length; x++){
-    if(str[x] !== "_" && str[x] !== "." && str[x] !==  "," && str[x] !== " " && str[x] !== "-" && str[x] !== "/" && str[x] !== "(" && str[x] !== ")") {
-      newStr += str[x].toLowerCase();
-    }
-  }
+  const newStr = str.split('')
+                  .filter(char => char.match(/[A-Za-z0-9]/g))
+                  .map(char => char.toLowerCase())
+                  .join('');
+
   for(let i = 0; i < newStr.length; i++){
     let front = newStr[i];
     let j = newStr.length - i -1;
